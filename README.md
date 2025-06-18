@@ -21,6 +21,18 @@
    JWT_SECRET=supersecretkey123
    ```
 
+3. Jalankan via Docker Compose
+   ```
+   docker compose up --build
+   ```
+   Ini akan Build image aplikasi Jalankan container MySQL + aplikasi Otomatis baca .env dan mengatur konfigurasi
+
+4. Stop Container
+   ```
+   docker compose down
+   ```
+
+
 ***Flow Aplikasi***
 1. Registrasi Konsumen
    
