@@ -1,18 +1,22 @@
  Flow Aplikasi 
 1. Registrasi Konsumen
+   
 User pertama kali harus register agar memiliki akun dan limit pinjaman awal untuk tiap tenor.
+
 Endpoint: POST **/api/auth/register**
 
 Request:
 ```
 {
-  "nik": "1234567890123456",
-  "full_name": "Budi Santoso",
-  "legal_name": "Budi S.",
-  "birth_place": "Jakarta",
-  "birth_date": "1995-05-01",
-  "salary": 5000000,
-  "password": "rahasia123"
+    "nik": "12391930123",
+    "full_name": "Budi Agung",
+    "legal_name": "Budi Agung",
+    "birth_place": "Jakarta",
+    "birth_date": "1990-01-01",
+    "salary": 10000000,
+    "password": "rahasia123",
+    "ktp_photo": "budi-ktp.jpg",
+    "selfie_photo": "budi-selfie.jpg"
 }
 ```
 ```
@@ -26,14 +30,16 @@ tenor 6 bulan: 700.000
 ```
 
 2. Login Konsumen
+   
 User login untuk mendapatkan token JWT yang digunakan untuk semua endpoint selanjutnya.
+
 Endpoint: POST /api/auth/login
 
 Request:
 ```
 {
-  "nik": "1234567890123456",
-  "password": "rahasia123"
+    "nik": "12334",
+    "password": "rahasia123"
 }
 ```
 Response:
@@ -44,10 +50,19 @@ Response:
 ```
 
 3. Lihat Profil Konsumen
+   
 Endpoint: GET /api/consumers
 
-4. Update Data Konsumen (Optional)
+Headers:
+```Authorization: Bearer <JWT_TOKEN>```
+
+
+5. Update Data Konsumen (Optional)
+   
 Endpoint: PUT /api/consumers/update
+
+Headers:
+```Authorization: Bearer <JWT_TOKEN>```
 
 Request:
 ```
@@ -61,9 +76,14 @@ Request:
 ```
 
 6. Ajukan Transaksi
+   
 User dapat mengajukan transaksi dengan memilih tenor dan nominal cicilan per bulan.
 Sistem akan mengecek apakah limit yang tersedia cukup berdasarkan tenor tersebut.
+
 Endpoint: POST /transactions
+
+Headers:
+```Authorization: Bearer <JWT_TOKEN>```
 
 Request:
 ```
@@ -85,7 +105,12 @@ Transaksi dicatat.
 ```
 
 6. Lihat Riwayat Transaksi
+   
 Endpoint: GET /transactions/history
+
+Headers:
+```Authorization: Bearer <JWT_TOKEN>```
+
 ```
 [
   {
