@@ -1,9 +1,9 @@
- Flow Aplikasi 
+***Flow Aplikasi***
 1. Registrasi Konsumen
    
 User pertama kali harus register agar memiliki akun dan limit pinjaman awal untuk tiap tenor.
 
-Endpoint: POST **/api/auth/register**
+Endpoint: POST /api/auth/register
 
 Request:
 ```
