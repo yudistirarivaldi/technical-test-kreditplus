@@ -35,7 +35,7 @@ User login untuk mendapatkan token JWT yang digunakan untuk semua endpoint selan
 
 Endpoint: POST /api/auth/login
 
-Request:
+Request: 
 ```
 {
     "nik": "12334",
