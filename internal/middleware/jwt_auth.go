@@ -28,7 +28,6 @@ func JWTMiddleware(secret string, next http.HandlerFunc) http.HandlerFunc {
 
 		consumerID, err := utils.ParseJWT(tokenStr, secret)
 		if err != nil {
-			http.Error(w, "Invalid or expired token", http.StatusUnauthorized)
 			utils.WriteJSON(w, http.StatusUnauthorized, map[string]string{
 				"responseCode": "01",
 				"message":      "Invalid or expired token",
